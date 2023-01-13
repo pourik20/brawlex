@@ -9,7 +9,8 @@ export default function Home({ ip }) {
   useEffect(() => {
     const getData = async () => {
       const token =
-        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijg0YjYwMzQ1LTMyMmItNDQ2NC1iMDI5LTY3MmIwZTVmYjZiYiIsImlhdCI6MTY3MzYwNDAyMCwic3ViIjoiZGV2ZWxvcGVyLzgyMzBiMGZjLWE4MTUtNTA1Ni1mODhjLTAzZjBlMWY3Njg1ZCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMjEyLjc5LjExMC4xMTQiXSwidHlwZSI6ImNsaWVudCJ9XX0.ykVTigpILtS_wHXGPagIXBHIlzyyCbWYRuCf6HG1GF-n4NbBEJSZELQCCQR3TyvLO1l7fzTlaogWIhBkFmeyKA'
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjhiZTQ3NjAwLTViYTctNDkwNC04NjI1LWVhOWY4ZWQzYTJmYSIsImlhdCI6MTY3MzYxMjc4Miwic3ViIjoiZGV2ZWxvcGVyLzgyMzBiMGZjLWE4MTUtNTA1Ni1mODhjLTAzZjBlMWY3Njg1ZCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMC4wLjAuMCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.ccJNugkCy1L_yLAhEZ_s-7roRA-GAUdu0x_pwVVB8p6wJ0x8IHFKIJbujkzEPiJDDbJGdR-ImN8x6Sn_nbt5WA'
+      console.log('token', token)
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       }
