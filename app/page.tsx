@@ -14,6 +14,7 @@ const Home = () => {
       const json = await res.json()
       console.log(json)
     }
+    getData()
   }, [])
   return <div>Home</div>
 }
