@@ -1,25 +1,12 @@
 import { createContext, useState, useContext, useEffect } from 'react'
+import brawlerList from '../public/data/brawlers.json'
+import iconList from '../public/data/icons.json'
 
 const BrawlContext = createContext()
 
 export const BrawlContextProvider = ({ children }) => {
-  const [icons, setIcons] = useState({})
-  const [brawlers, setBrawlers] = useState([])
-
-  useEffect(() => {
-    const getIcons = async () => {
-      const res = await fetch('https://api.brawlapi.com/v1/icons')
-      const json = await res.json()
-      setIcons(json)
-    }
-    const getBrawlers = async () => {
-      const res = await fetch('https://api.brawlapi.com/v1/brawlers')
-      const json = await res.json()
-      setBrawlers(json.list)
-    }
-    getIcons()
-    getBrawlers()
-  }, [])
+  const [icons, setIcons] = useState(iconList)
+  const [brawlers, setBrawlers] = useState(brawlerList.list)
 
   return (
     <BrawlContext.Provider value={{ icons, brawlers }}>

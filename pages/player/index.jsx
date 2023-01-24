@@ -8,26 +8,32 @@ import {
   Container,
   Flex,
   VStack,
+  Box,
 } from '@chakra-ui/react'
 import PlayerView from './player-view'
 import { usePlayer } from '../../context/player-context'
 import { useBrawl } from '../../context/brawl-context'
 import { useColorModeValue } from '@chakra-ui/react'
+import BrawlerList from '../../components/brawler-list'
+import testPlayer from '../../public/test_data/test-player.json'
 
 const Page = () => {
   const [playerId, setPlayerId] = useState('')
 
-  const [icon, setIcon] = useState('')
+  // const [icon, setIcon] = useState('')
+  const [icon, setIcon] = useState(
+    'https://cdn-old.brawlify.com/profile/28000151.png'
+  )
   const [loading, setLoading] = useState(false)
 
   const { icons, brawlers } = useBrawl()
   const { player, updatePlayer } = usePlayer()
 
-  useEffect(() => {
-    if (player && player.icon) {
-      updatePlayerIcon()
-    }
-  }, [player])
+  // useEffect(() => {
+  //   if (player && player.icon) {
+  //     updatePlayerIcon()
+  //   }
+  // }, [player])
 
   const resetPlayer = () => {
     updatePlayer({})
@@ -36,7 +42,7 @@ const Page = () => {
   const getPlayer = async (id) => {
     resetPlayer()
     setLoading(true)
-    const url = `https://localhost:7031/Player/${id}`
+    const url = `https://brawlexapi.azurewebsites.net/player/${id}`
     const res = await fetch(url)
     const json = await res.json()
     updatePlayer(json)
@@ -48,7 +54,7 @@ const Page = () => {
   }
 
   return (
-    <Container py={10} maxW={'container.md'} centerContent>
+    <Container py={10} maxW={'container.lg'} centerContent>
       <VStack w={'container.md'} spacing={5}>
         <Flex gap={2} alignItems='center'>
           <InputGroup maxW={'xs'}>
@@ -66,7 +72,7 @@ const Page = () => {
               value={playerId.toUpperCase()}
             />
           </InputGroup>
-          <Button
+          {/* <Button
             color='white'
             bg='teal.500'
             onClick={() => getPlayer(playerId)}
@@ -78,10 +84,13 @@ const Page = () => {
             }}
           >
             Find
-          </Button>
+          </Button> */}
         </Flex>
         {Object.keys(player).length !== 0 && (
-          <PlayerView player={player} iconUrl={icon} />
+          <>
+            <PlayerView player={player} iconUrl={icon} />
+            <BrawlerList />
+          </>
         )}
         {loading && (
           <Spinner
