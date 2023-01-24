@@ -20,10 +20,10 @@ const BrawlerCard = ({ brawler }) => {
   const getColoredName = () => {
     const name = rarity.name
     const rarityColorMap = {
-      Common: '#8a8a8a',
-      Rare: '#00FF00',
-      'Super Rare': '#0000CC',
-      Epic: '#7F00FF',
+      Common: '#9ac3fc',
+      Rare: '#42ff55',
+      'Super Rare': '#388afc',
+      Epic: '#a408ff',
       Mythic: '#FF0000',
       Legendary: '#fcd703',
     }
@@ -54,7 +54,7 @@ const BrawlerCard = ({ brawler }) => {
       imgName = firstLetter + brawler.name.slice(1).toLowerCase()
   }
   return (
-    <Card>
+    <Card w={'xs'}>
       <CardHeader>
         <Flex alignItems={'center'} gap='3'>
           <Image
@@ -63,10 +63,19 @@ const BrawlerCard = ({ brawler }) => {
             w={'12'}
           />
           {getColoredName()}
-          <Text fontSize={'lg'}>{brawler.rank}</Text>
         </Flex>
       </CardHeader>
-      <CardBody></CardBody>
+      <CardBody>
+        <Flex alignItems={'center'} justifyContent={'space-between'} px={2}>
+          <Flex gap={2}>
+            <Image src='/trophy.webp' w={5} alt='trophy' />
+            <Text fontSize={'sm'}>
+              {brawler.trophies}/{brawler.highestTrophies}
+            </Text>
+          </Flex>
+          <Text>{brawler.rank}</Text>
+        </Flex>
+      </CardBody>
     </Card>
   )
 }
