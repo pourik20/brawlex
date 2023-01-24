@@ -15,9 +15,10 @@ import {
 } from '@chakra-ui/react'
 import { useBrawl } from '../../context/brawl-context'
 import PlayerStatsTable from '../../components/player-stats-table'
+import { usePlayer } from '../../context/player-context'
 
-const PlayerView = ({ player, iconUrl }) => {
-  const { brawlers } = useBrawl()
+const PlayerView = ({ iconUrl }) => {
+  const { player } = usePlayer()
   return (
     <>
       <Card w='100%' maxW='lg' size='lg'>
