@@ -16,11 +16,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn-old.brawlify.com',
+        protocol: "https",
+        hostname: "cdn-old.brawlify.com",
+      },
+      {
+        protocol: "https",
+        hostname: "brawlex.vercel.app",
       },
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
