@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
   useColorModeValue,
+  Tooltip,
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { getJSDocAugmentsTag } from 'typescript'
@@ -58,18 +59,14 @@ const BrawlerCard = ({ brawler }) => {
 
   const getGear = () => {
     let unlocked = brawler.gears.map((x) => (
-      // <Image
-      //   key={x.id}
-      //   src={`/gear-${gearMap[x.name]}.webp`}
-      //   w={8}
-      //   alt="gear"
-      // />
-      <Image
-        key={x.id}
-        src={`https://cdn-old.brawlify.com/gears/${x.id}.png`}
-        w={8}
-        alt='gear'
-      />
+      <Tooltip key={x.id} label={x.name} aria-label='A tooltip'>
+        <Image
+          key={x.id}
+          src={`https://cdn-old.brawlify.com/gears/${x.id}.png`}
+          w={8}
+          alt='gear'
+        />
+      </Tooltip>
     ))
     let locked = []
     for (let i = 0; i < 5 - unlocked.length; i++) {
@@ -81,12 +78,13 @@ const BrawlerCard = ({ brawler }) => {
   //TODO: x.name - pythonem prejmenovat vsechny soubory na upperCase
   const getIcons = (entity, imgPrefix) => {
     let unlocked = brawler[entity].map((x) => (
-      <Image
-        key={x.id}
-        src={`/gd_sp/${brawler.name}/${x.name}.PNG`}
-        w={10}
-        alt={`${x.name}`}
-      />
+      <Tooltip key={x.id} label={x.name} aria-label='A tooltip'>
+        <Image
+          src={`/gd_sp/${brawler.name}/${x.name}.PNG`}
+          w={10}
+          alt={`${x.name}`}
+        />
+      </Tooltip>
     ))
     let locked = []
     for (let i = 0; i < 2 - unlocked.length; i++) {
@@ -131,7 +129,7 @@ const BrawlerCard = ({ brawler }) => {
         </VStack>
         <Flex alignItems={'center'} justifyContent={'space-between'} px={2}>
           <Flex gap={2}>
-            <Image src='/trophy.webp' w={5} alt='trophy' />
+            <Image src='/trophy.webp' w={8} alt='trophy' />
             <Text fontSize={'lg'}>
               {brawler.trophies}/{brawler.highestTrophies}
             </Text>
