@@ -8,14 +8,13 @@ import {
   Container,
   Flex,
   VStack,
-  Box,
 } from '@chakra-ui/react'
 import PlayerView from '../../components/player-view'
 import { usePlayer } from '../../context/player-context'
 import { useBrawl } from '../../context/brawl-context'
 import { useColorModeValue } from '@chakra-ui/react'
 import BrawlerList from '../../components/brawler-list'
-import testPlayer from '../../public/test_data/test-player.json'
+// import testPlayer from "../../public/test_data/test-player.json"
 
 const Page = () => {
   const [playerId, setPlayerId] = useState('')
@@ -77,6 +76,9 @@ const Page = () => {
               placeholder='GAMERTAG'
               color={useColorModeValue('gray.700', 'gray.200')}
               onChange={(e) => setPlayerId(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.code === 'Enter') getPlayer(playerId)
+              }}
               value={playerId.toUpperCase()}
             />
           </InputGroup>
