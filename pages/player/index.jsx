@@ -42,7 +42,8 @@ const Page = () => {
   const getPlayer = async (id) => {
     resetPlayer()
     setLoading(true)
-    const url = `https://brawlexapi.azurewebsites.net/player/${id}`
+    // const url = `https://brawlexapi.azurewebsites.net/player/${id}`
+    const url = `https://cr.is-a.dev/${id}`
     const res = await fetch(url)
     const json = await res.json()
     updatePlayer(json)
