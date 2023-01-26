@@ -99,7 +99,7 @@ const BrawlerCard = ({ brawler }) => {
 
   return (
     <Card
-      w={{ base: 'md', lg: 'xs' }}
+      w={{ base: 'sm', lg: 'xs' }}
       bg={useColorModeValue('gray.50', 'gray.700')}
     >
       <CardHeader>
