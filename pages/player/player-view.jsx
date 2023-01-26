@@ -22,8 +22,6 @@ const PlayerView = ({ iconUrl }) => {
   const { player } = usePlayer()
   const { brawlers } = useBrawl()
 
-  console.log('player', player)
-
   return (
     <>
       <Card
