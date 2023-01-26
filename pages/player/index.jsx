@@ -10,7 +10,7 @@ import {
   VStack,
   Box,
 } from '@chakra-ui/react'
-import PlayerView from './player-view'
+import PlayerView from '../../components/player-view'
 import { usePlayer } from '../../context/player-context'
 import { useBrawl } from '../../context/brawl-context'
 import { useColorModeValue } from '@chakra-ui/react'

@@ -13,10 +13,10 @@ import {
   Text,
   IconButton,
 } from '@chakra-ui/react'
-import { useBrawl } from '../../context/brawl-context'
-import PlayerStatsTable from '../../components/player-stats-table'
-import { usePlayer } from '../../context/player-context'
-import TableRow from '../../components/table-row'
+import { useBrawl } from '../context/brawl-context'
+import PlayerStatsTable from './player-stats-table'
+import { usePlayer } from '../context/player-context'
+import TableRow from './table-row'
 
 const PlayerView = ({ iconUrl }) => {
   const { player } = usePlayer()
