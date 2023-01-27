@@ -134,7 +134,10 @@ const BrawlerCard = ({ brawler }) => {
               {brawler.trophies}/{brawler.highestTrophies}
             </Text>
           </Flex>
-          <Text fontSize={'xl'}>Some text</Text>
+          <Flex alignItems={'center'} gap={1}>
+            <Image src='/power.webp' w={'6'} alt='power' />
+            <Text fontSize={'2xl'}>{brawler.power}</Text>
+          </Flex>
         </Flex>
       </CardBody>
     </Card>
