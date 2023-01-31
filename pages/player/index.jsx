@@ -8,12 +8,14 @@ import {
   Container,
   Flex,
   VStack,
+  Text,
 } from '@chakra-ui/react'
 import PlayerView from '../../components/player-view'
 import { usePlayer } from '../../context/player-context'
 import { useBrawl } from '../../context/brawl-context'
 import { useColorModeValue } from '@chakra-ui/react'
 import BrawlerList from '../../components/brawler-list'
+import ChromaticText from '../../components/text-gradient'
 // import testPlayer from "../../public/test_data/test-player.json"
 
 const Page = () => {
@@ -96,6 +98,11 @@ const Page = () => {
             Find
           </Button>
         </Flex>
+        {Object.keys(player).length === 0 && (
+          <Text fontSize={'lg'}>
+            Don't have a tag? Try "LLUVCYPLR" to see how it works.
+          </Text>
+        )}
         {Object.keys(player).length !== 0 && (
           <>
             <PlayerView player={player} iconUrl={icon} />
