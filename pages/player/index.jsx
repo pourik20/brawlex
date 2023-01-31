@@ -100,7 +100,8 @@ const Page = () => {
         </Flex>
         {Object.keys(player).length === 0 && (
           <Text fontSize={'lg'}>
-            Don't have a tag? Try "LLUVCYPLR" to see how it works.
+            Don&apos;t have a tag? Try &quot;LLUVCYPLR&quot; to see how it
+            works.
           </Text>
         )}
         {Object.keys(player).length !== 0 && (
