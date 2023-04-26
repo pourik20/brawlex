@@ -16,7 +16,7 @@ import { useBrawl } from '../../context/brawl-context'
 import { useColorModeValue } from '@chakra-ui/react'
 import BrawlerList from '../../components/brawler-list'
 import ChromaticText from '../../components/text-gradient'
-// import testPlayer from "../../public/test_data/test-player.json"
+import testPlayer from '../../public/test_data/test-player.json'
 
 const Page = () => {
   const [playerId, setPlayerId] = useState('')
@@ -36,6 +36,11 @@ const Page = () => {
     }
   }, [player])
 
+  // Just for a demo, delete when API is working
+  useEffect(() => {
+    updatePlayer(testPlayer)
+  }, [])
+
   const resetPlayer = () => {
     updatePlayer({})
   }
@@ -43,11 +48,11 @@ const Page = () => {
   const getPlayer = async (id) => {
     resetPlayer()
     setLoading(true)
-    // const url = `https://brawlexapi.azurewebsites.net/player/${id}`
-    const url = `https://cr.is-a.dev/${id}`
-    const res = await fetch(url)
-    const json = await res.json()
-    updatePlayer(json)
+    // const url = `https://cr.is-a.dev/${id}`
+    // const res = await fetch(url)
+    // const json = await res.json()
+    // updatePlayer(json)
+    updatePlayer(testPlayer)
     setLoading(false)
   }
 
@@ -65,6 +70,9 @@ const Page = () => {
         }}
         spacing={5}
       >
+        <ChromaticText>
+          There is currently a problem with the API. Displaying a sample user.
+        </ChromaticText>
         <Flex gap={2} alignItems='center'>
           <InputGroup maxW={'xs'}>
             <InputLeftElement
